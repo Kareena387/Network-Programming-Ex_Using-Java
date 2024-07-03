@@ -9,11 +9,13 @@ import java.net.URLConnection;
 public class FetchWebsiteContent {
     public static void main(String[] args) throws Exception {
         StringBuilder content = new StringBuilder();
-        try{
+
+        
             @SuppressWarnings("deprecation")
             URL u = new URL ("https://www.linkedin.com/");
             URLConnection uc = u.openConnection();
             InputStream in = uc.getInputStream();
+
             try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(in))) {
                 String line;
                 while ((line = bufferedReader.readLine()) != null){
@@ -21,11 +23,10 @@ public class FetchWebsiteContent {
                 }
             }
 
-        }
+        
         catch(Exception e){
         }
-        System.out.println(content);
-        
+        System.out.println(content);   
         
     }
     
